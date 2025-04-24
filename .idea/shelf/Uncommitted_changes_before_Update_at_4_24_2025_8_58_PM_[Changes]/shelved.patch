@@ -1,0 +1,124 @@
+Index: costmanager/users/views.py
+===================================================================
+diff --git a/costmanager/users/views.py b/costmanager/users/views.py
+deleted file mode 100644
+--- a/costmanager/users/views.py	(revision 99ef969863db02c75a951f447f2cc9570446b7ff)
++++ /dev/null	(revision 99ef969863db02c75a951f447f2cc9570446b7ff)
+@@ -1,6 +0,0 @@
+-from django.shortcuts import render
+-
+-# Create your views here.
+-
+-def loginPage(request):
+-    return render(request, 'templates/login_register.html')
+\ No newline at end of file
+Index: costmanager/templates/login_register.html
+===================================================================
+diff --git a/costmanager/templates/login_register.html b/costmanager/templates/login_register.html
+deleted file mode 100644
+--- a/costmanager/templates/login_register.html	(revision 99ef969863db02c75a951f447f2cc9570446b7ff)
++++ /dev/null	(revision 99ef969863db02c75a951f447f2cc9570446b7ff)
+@@ -1,12 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Register/Login</title>
+-</head>
+-<body>
+-<h1>
+-    This is login/register
+-</h1>
+-</body>
+-</html>
+\ No newline at end of file
+Index: costmanager/static/styles/main.css
+===================================================================
+diff --git a/costmanager/static/styles/main.css b/costmanager/static/styles/main.css
+deleted file mode 100644
+--- a/costmanager/static/styles/main.css	(revision 99ef969863db02c75a951f447f2cc9570446b7ff)
++++ /dev/null	(revision 99ef969863db02c75a951f447f2cc9570446b7ff)
+@@ -1,7 +0,0 @@
+-h1{
+-    color: red;
+-}
+-
+-p{
+-    color: blue;
+-}
+\ No newline at end of file
+Index: costmanager/main_project/views.py
+===================================================================
+diff --git a/costmanager/main_project/views.py b/costmanager/main_project/views.py
+deleted file mode 100644
+--- a/costmanager/main_project/views.py	(revision 99ef969863db02c75a951f447f2cc9570446b7ff)
++++ /dev/null	(revision 99ef969863db02c75a951f447f2cc9570446b7ff)
+@@ -1,10 +0,0 @@
+-from django.shortcuts import render
+-from django.http import HttpResponse
+-
+-def home_view(request):
+-    page = 'Home'
+-    return render(request, 'home.html', {'page': page})
+-
+-def login_view(request):
+-    page = 'Login/Register'
+-    return render(request, 'login_register.html', {page: page})
+\ No newline at end of file
+Index: costmanager/users/models.py
+===================================================================
+diff --git a/costmanager/users/models.py b/costmanager/users/models.py
+deleted file mode 100644
+--- a/costmanager/users/models.py	(revision 99ef969863db02c75a951f447f2cc9570446b7ff)
++++ /dev/null	(revision 99ef969863db02c75a951f447f2cc9570446b7ff)
+@@ -1,12 +0,0 @@
+-import uuid
+-
+-from django.db import models
+-
+-# Create your models here.
+-
+-class Users(models.Model):
+-    nume = models.TextField(default='Name', max_length=20)
+-    prenume = models.TextField(default='Prenume', max_length=20)
+-    email = models.EmailField(default='email@example.com', max_length=50, blank=False)
+-    created = models.DateTimeField(auto_now_add=True)
+-    id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
+Index: costmanager/templates/home.html
+===================================================================
+diff --git a/costmanager/templates/home.html b/costmanager/templates/home.html
+deleted file mode 100644
+--- a/costmanager/templates/home.html	(revision 99ef969863db02c75a951f447f2cc9570446b7ff)
++++ /dev/null	(revision 99ef969863db02c75a951f447f2cc9570446b7ff)
+@@ -1,15 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="utf-8">
+-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+-    <meta name="viewport" content="width=device-width, initial-scale=1">
+-    <title>TYM Home</title>
+-    <link rel="icon" href="img/fav.png" type="image/x-icon">
+-</head>
+-<body>
+-<h1>
+-    This is home
+-</h1>
+-</body>
+-</html>
+\ No newline at end of file
+Index: costmanager/main_project/urls.py
+===================================================================
+diff --git a/costmanager/main_project/urls.py b/costmanager/main_project/urls.py
+deleted file mode 100644
+--- a/costmanager/main_project/urls.py	(revision 99ef969863db02c75a951f447f2cc9570446b7ff)
++++ /dev/null	(revision 99ef969863db02c75a951f447f2cc9570446b7ff)
+@@ -1,7 +0,0 @@
+-from django.urls import path
+-from . import views
+-
+-urlpatterns = [
+-    path('home/', views.home_view, name='home'),
+-    path('login/', views.login_view, name='login_register')
+-]
+\ No newline at end of file
