@@ -13,17 +13,15 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-print(BASE_DIR)
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-*07+jeeu*zkcy7h0q-s+*4ztuk*h!g%b1z)ez7(id3@(1!%ht5'
+SECRET_KEY = 'django-insecure-cw0+c^n-pdu#&gya@lv7v_!qe4v42v4yua1_^xntvtcql2zs!u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,9 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main_project',
-    'users'
-
+    'costs.apps.CostsConfig',
 ]
 
 MIDDLEWARE = [
@@ -124,12 +120,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-
-MEDIA_URL = 'images/'
-
-STATICFILES_DIRS = [
-    BASE_DIR / 'static'
-]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
