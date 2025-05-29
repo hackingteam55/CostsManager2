@@ -1,7 +1,19 @@
 {% extends 'main.html' %}
 {% block content%}
 <h1>Monthly Costs</h1>
-
-<p>Costs</p>
+<table>
+    <tr>
+        <th>Luna</th>
+        <th>Data Efectuarii Costului</th>
+        <th>Total Costuri</th>
+    </tr>
+    {% for monthly_costs in monthly_costs %}
+    <tr>
+        <th>{{monthly_costs.luna}}</th>
+        <th>{{monthly_costs.created}}</th>
+        <th>{{monthly_costs.total_costuri}}</th>
+    </tr>
+    {% endfor %}
+</table>
 
 {% endblock content%}

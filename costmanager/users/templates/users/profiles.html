@@ -1,0 +1,56 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<!-- Main Section -->
+  <main class="home">
+    <section class="hero-section text-center">
+      <div class="container container--narrow">
+        <div class="hero-section__box">
+          <h2>COLABOREAZA CU <span>UTILIZATORI</span></h2>
+          <h2>DIN INTREAGA LUME</h2>
+        </div>
+
+        <div class="hero-section__search">
+          <form class="form" action="{% url 'profiles' %}" method="get">
+            <div class="form__field">
+              <label for="formInput#search">Cauta utilizator </label>
+              <input class="input input--text" id="formInput#search" type="text" name="search_query"
+              value="{{search_query}}"  placeholder="Cauta utilizator"/>
+            </div>
+
+            <input class="btn btn--sub btn--lg" type="submit" value="Cauta" />
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="devlist">
+      <div class="container container--narrow">
+        <div class="grid grid--three">
+          {% for profile in profiles %}
+          <div class="column card">
+            <div class="dev">
+              <a href="{% url 'user_profile' profile.id %}" class="card__body">
+                <div class="dev__profile">
+                  <img class="avatar avatar--md" src="{{profile.poza_profil.url}}" />
+                  <div class="dev__meta">
+                    <h3>{{profile.nume}} {{ profile.prenume}}</h3>
+                    <h5>QA Senior Engineer</h5>
+                  </div>
+                </div>
+                <p class="dev__info">
+                Magazine Favorite:
+                </p>
+                <div class="dev__skills">
+                  <span class="tag tag--pill tag--main">
+                    <small><b>{{ profile.magazine_favorite}}</b></small>
+                  </span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        {% endfor%}
+      </div>
+    </section>
+  </main>
+{% endblock content %}

@@ -2,6 +2,19 @@
 {% block content%}
 <h1>Favorite Shops</h1>
 
-<p>Shops</p>
+<table>
+    <tr>
+        <th>Nume Magazin</th>
+        <th>Locatie</th>
+        <th>Orar</th>
+    </tr>
+    {% for fav_shop in fav_shop %}
+    <tr>
+        <th>{{fav_shop.nume_magazin}}</th>
+        <th>{{fav_shop.locatie}}</th>
+        <th>{{fav_shop.orar}}</th>
+    </tr>
+    {% endfor %}
+</table>
 
 {% endblock content%}
