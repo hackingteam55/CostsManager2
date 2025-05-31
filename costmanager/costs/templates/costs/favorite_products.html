@@ -32,7 +32,7 @@
                 <img class="project__thumbnail" src="{{product.product_image.url}}" alt="project thumbnail" />
                 <div class="card__body">
                   <h3 class="project__title">{{product.nume_produs}}</h3>
-                  <p><a class="project__author" href="{% url 'product' product.id %}">Adaugat de: {{product.utilizator.nume}}</a></p>
+                  <p><a class="project__author" href="{% url 'product' product.id %}">Adaugat de: {{product.profile}}</a></p>
                   <p class="product--price">
                     <span style="font-weight: bold;">Pret: {{product.pret}}</span>
                   </p>

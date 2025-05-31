@@ -13,9 +13,9 @@ class ProductForm(ModelForm):
     class Meta:
         model = Product
         fields = ['nume_produs', 'product_image', 'nume_magazin', 'descriere', 'producator', 'calorii', 'pret']
-        widgets = {
-            'nume_magazin': forms.CheckboxSelectMultiple(),
-        }
+        # widgets = {
+        #     'nume_magazin': forms.CheckboxSelectMultiple(),
+        # }
 
 class ShopForm(ModelForm):
     class Meta:

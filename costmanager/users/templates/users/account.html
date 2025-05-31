@@ -24,18 +24,28 @@
           <h3 class="devInfo__title">Despre mine</h3>
           <p class="devInfo__about">{{profile.bio}}</p>
         </div>
-
-        <div class="settings">
-          <h3 class="settings__title">Produse</h3>
           <a class="tag tag--pill tag--sub settings__btn tag--lg" href="{% url 'add-product' %}"><i
               class="im im-plus"></i>Adauga Produs</a>
+        <div class="settings">
+           <div class="settings">
+          <a class="tag tag--pill tag--sub settings__btn tag--lg" href="{% url 'add_shop' %}"><i
+              class="im im-plus"></i> Adauga Magazin</a>
+        </div>
+          <h3 class="settings__title">Produse</h3>
+          <!--ul>
+            {% for product in products %}
+              <li>{{ product.name }}</li>
+            {% empty %}
+              <li>You have no products.</li>
+            {% endfor %}
+          </ul-->
         </div>
 
-        <table class="settings__table">
+        <!--table class="settings__table">
           {% for product in products %}
           <tr>
             <td class="settings__thumbnail">
-              <a href="{% url 'product' project.id %}"><img src="{{project.imageURL}}" alt="Project Thumbnail" /></a>
+              <a href="{% url 'product' project.id %}"><img src="{{product.product_image.url}}" alt="Project Thumbnail" /></a>
             </td>
             <td class="settings__tableInfo">
               <a href="{% url 'product' product.id %}">{{product.nume_produs}}</a>
@@ -50,8 +60,7 @@
             </td>
           </tr>
           {% endfor %}
-
-        </table>
+        </table-->
       </div>
     </div>
   </div>

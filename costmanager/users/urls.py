@@ -13,5 +13,5 @@ urlpatterns = [
 
     path('edit-account/', views.editAccount, name="edit-account"),
 
-
+    path('addshop/', views.addShop, name="add_shop")
 ]

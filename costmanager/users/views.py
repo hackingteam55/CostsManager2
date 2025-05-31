@@ -5,9 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import Profile
-from .forms import CustomUserCreationForm, ProfileForm
+from .forms import CustomUserCreationForm, ProfileForm, ShopForm
 from .utils import searchProfiles
-
 
 # Create your views here.
 
@@ -80,7 +79,9 @@ def registerUser(request):
 def userAccount(request):
     profile = request.user.profile
 
-    context = {'profile': profile}
+    products = profile.product_set.all()
+
+    context = {'profile': profile, 'products': products}
     return render(request, 'users/account.html', context)
 
 @login_required(login_url='login')
@@ -97,3 +98,20 @@ def editAccount(request):
 
     context = {'form': form}
     return render(request, 'users/profile_form.html', context)
+
+@login_required(login_url='login')
+def addShop(request):
+    profile = request.user.profile
+    form = ShopForm
+
+    if request.method == 'POST':
+        form = ShopForm(request.POST)
+        if form.is_valid():
+            shop = form.save(commit=False)
+            shop.owner = profile
+            shop.save()
+            messages.success(request, 'Magazin adaugat cu succes')
+            return redirect('account')
+
+    context = {'form': form}
+    return render(request, 'users/shop_form.html', context)
