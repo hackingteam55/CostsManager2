@@ -33,6 +33,7 @@ def favorite_shops(request):
 
 @login_required(login_url="login")
 def add_product(request):
+    profile = request.user.profile
     form  = ProductForm()
 
     if request.method == 'POST':
@@ -40,7 +41,7 @@ def add_product(request):
         if form.is_valid():
             if form.is_valid():
                 product = form.save(commit=False)
-                product.utilizator1 = request.user
+                product.owner = profile
                 product.save()
                 form.save_m2m()
             return redirect('favoriteproducts')

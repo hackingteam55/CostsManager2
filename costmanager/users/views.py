@@ -19,7 +19,8 @@ def profiles(request):
 @login_required(login_url="login")
 def userProfile(request, pk):
     profile = Profile.objects.get(id=pk)
-    context = {'profile': profile}
+    products = profile.product_set.all()
+    context = {'profile': profile, 'products': products}
     return render(request, 'users/user_profile.html', context)
 
 
@@ -115,3 +116,5 @@ def addShop(request):
 
     context = {'form': form}
     return render(request, 'users/shop_form.html', context)
+
+

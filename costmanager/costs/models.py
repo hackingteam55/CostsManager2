@@ -7,7 +7,8 @@ from users.models import Profile
 # Create your models here.
 
 class Product(models.Model):
-    profile = models.ForeignKey(Profile, null=True, blank=True, on_delete=CASCADE)
+    owner = models.ForeignKey(
+        Profile, null=True, blank=True, on_delete=models.CASCADE)
     nume_produs = models.CharField(max_length=20)
     nume_magazin = models.ManyToManyField('Shop')
     descriere = models.CharField(default='', max_length=50)

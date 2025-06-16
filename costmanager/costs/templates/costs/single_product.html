@@ -11,7 +11,7 @@
           <h3 class="singleProject__subtitle">Despre Produs</h3>
           <div class="singleProject__info">
             {{product.descriere}}
-            <h3 class="project--rating">Utilizator: {{product.utilizator.nume}}</h3>
+            <h3 class="project--rating">Utilizator: {{product.owner.nume}}</h3>
 
           <h3 class="project--rating">Magazin de provenienta:
             {% for shop in product.nume_magazin.all %}
